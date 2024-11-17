@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SnowflakeIcon, Heart } from 'lucide-react';
+import { Heart, SnowflakeIcon } from "lucide-react";
 import type { NextPage } from "next";
 
 const Marketplace: NextPage = () => {
@@ -11,30 +11,37 @@ const Marketplace: NextPage = () => {
       name: "Chilly Charlie",
       price: 250,
       rarity: "Common",
-      imageUrl: "/api/placeholder/300/300"
+      imageUrl:
+        "https://olive-exceptional-viper-654.mypinata.cloud/ipfs/QmPYamu9UBXecU47etWpeYZjN4uWDD82F8GwRGB953sWHb",
     },
     {
       id: 2,
       name: "Frostbite Fred",
       price: 500,
       rarity: "Rare",
-      imageUrl: "/api/placeholder/300/300"
+      imageUrl:
+        "https://olive-exceptional-viper-654.mypinata.cloud/ipfs/QmTK3SDUKWjcnJotvh8XoNP25g3vrEcJY549dv61BDD1Bh",
     },
     {
       id: 3,
       name: "Princess Powder",
       price: 1000,
       rarity: "Legendary",
-      imageUrl: "/api/placeholder/300/300"
-    }
+      imageUrl:
+        "https://olive-exceptional-viper-654.mypinata.cloud/ipfs/QmWaJDA4TnEkZzq6EyEsWfc3PiQZ9wh4PiBbELf9XyCYUA",
+    },
   ]);
 
-  const getRarityColor = (rarity) => {
+  const getRarityColor = rarity => {
     switch (rarity.toLowerCase()) {
-      case 'common': return 'bg-gray-500';
-      case 'rare': return 'bg-blue-500';
-      case 'legendary': return 'bg-purple-500';
-      default: return 'bg-gray-500';
+      case "common":
+        return "bg-gray-500";
+      case "rare":
+        return "bg-blue-500";
+      case "legendary":
+        return "bg-purple-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
@@ -47,19 +54,15 @@ const Marketplace: NextPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {snowmen.map((snowman) => (
-            <div 
-              key={snowman.id} 
+          {snowmen.map(snowman => (
+            <div
+              key={snowman.id}
               className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Image Section */}
               <div className="relative">
-                <img
-                  src={snowman.imageUrl}
-                  alt={snowman.name}
-                  className="w-full h-64 object-cover"
-                />
-                <span 
+                <img src={snowman.imageUrl} alt={snowman.name} className="w-full h-64" />
+                <span
                   className={`absolute top-4 right-4 ${getRarityColor(snowman.rarity)} 
                     text-white px-3 py-1 rounded-full text-sm font-semibold`}
                 >
@@ -69,7 +72,6 @@ const Marketplace: NextPage = () => {
 
               {/* Content Section */}
               <div className="p-6">
-
                 {/* Price */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
@@ -81,15 +83,13 @@ const Marketplace: NextPage = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-2">
-                  <button 
+                  <button
                     className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg 
                       transition-colors duration-200"
                   >
                     Adopt Now
                   </button>
-                  <button 
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
-                  >
+                  <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200">
                     <Heart className="h-5 w-5 text-gray-600" />
                   </button>
                 </div>
