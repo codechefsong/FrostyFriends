@@ -8,9 +8,9 @@ contract FrostyNFT is ERC721URIStorage {
 
   constructor() ERC721("Frosty NFT", "FNFT") {}
 
-  function mintFrosty(address _to, string memory _tokenURI_) public {
+  function mintFrosty(address _to, string memory _tokenURI) public {
     _mint(_to, numberOfNFT);
-    _setTokenURI(numberOfNFT, _tokenURI_);
+    _setTokenURI(numberOfNFT, _tokenURI);
     numberOfNFT++;
   }
 }

@@ -38,7 +38,12 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   const CrystalPoint = await hre.ethers.getContract<Contract>("CrystalPoint", deployer);
 
-  console.log(FrostyNFT, CrystalPoint);
+  await deploy("FrostyFriends", {
+    from: deployer,
+    args: [deployer, await CrystalPoint.getAddress(), await FrostyNFT.getAddress()],
+    log: true,
+    autoMine: true,
+  });
 };
 
 export default deployYourContract;
